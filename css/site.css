@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #1d5888;
-  --secondary-color: #ff993b;
+  --primary-color: #5083ad;
+  --secondary-color: rgb(95, 93, 93);
   --dark-color: #292929;
   --white-color: #e7e7e7;
 }
@@ -14,11 +14,11 @@ body {
 }
 
 nav {
-  background-color: var(--dark-color);
+  background-color: var(--primary-color);
 }
 
 footer {
-  background-color: var(--dark-color);
+  background-color: var(--primary-color);
 }
 
 h1,
@@ -43,6 +43,7 @@ footer .social > a:hover {
   opacity: 0.9;
   color: var(--secondary-color);
 }
+
 
 .sticky-nav {
   position: fixed;

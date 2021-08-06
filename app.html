@@ -1,86 +1,206 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" class="h-100">
-
-<head>
-    <title>App Name: A Coding Project By Pawel Slugocki</title>
+  <head>
+    <title>FIZZ BUZZ: A Coding Project By Pawel Slugocki</title>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
 
-    <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/5db21ba9c6.js"
+      crossorigin="anonymous"
+    ></script>
 
-    <link href="./css/site.css" rel="stylesheet">
-   <link rel="icon" type="image/png" href="img/favicon_io/favicon-32x32.png">
-</head>
-<body class="d-flex flex-column h-100">
+    <link href="./css/site.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="img/favicon_io/favicon-32x32.png" />
+  </head>
+  <body class="d-flex flex-column h-100">
     <!-- nav section -->
-<nav class="navbar navbar-expand-md navbar-dark fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="img/mono-kmousetool.svg" class="d-inline-block align-text-top" alt="Logo" width="30" height="24"> APP NAME</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"
+          ><img
+            src="img/mono-kmousetool.svg"
+            class="d-inline-block align-text-top"
+            alt="Logo"
+            width="30"
+            height="24"
+          />FIZZ BUZZ</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="app.html">The App</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="code.html">The Code</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">Git Repo</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">About</a>
-                </li>
-            </ul>
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="app.html"
+                >The App</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="code.html">The Code</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="#">Git Repo</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="#">About</a>
+            </li>
+          </ul>
         </div>
-    </div>
-</nav>
-<!-- main section -->
-<main class="flex-shrink-0">
-    <div class="container">
-
-    </div>
-</main>
+      </div>
+    </nav>
+    <!-- main section -->
+    <main class="flex-shrink-0">
+      <div class="container mt-4">
+        <div class="row row-cols-1 row-cols-md-2">
+          <div class="col border-end border-2">
+            <h2>FIZZ BUZZ: A Coding Project</h2>
+            <h4 class="lead">
+              When it counts- you Fizz Buzz. A javascript coding exercise using
+              loops. The program that prints numbers to the page. For multiples
+              of '3' displays
+              <span class="fw-bold">'Fizz'</span> instead of the number. For
+              multiples of '5' displays <span class="fw-bold">'Buzz'</span>.
+              Finally, if the number is a multiple of both- displays
+              <span class="fw-bold">'FizzBuzz'</span>.
+            </h4>
+            <h2 class="mt-4">Instructions</h2>
+            <p class="text-muted">
+              Enter a Fizz and a Buzz value in the 0 - 100 range. Fizz value
+              needs to be smaller than or equal to Buzz value. Press the button
+              and the values will appear.
+            </p>
+          </div>
+          <div class="col mt-4 mt-md-0">
+            <div>
+              <h5>Enter Values</h5>
+            <form class="row gx-2 mb-5">
+              <div class="col">
+                <input type="number" min="0" max="100" class="form-control" id="fizzValue" aria-describedby="fizzValue" placeholder="Fizz...">
+              </div>
+              <div class="col">
+                  <input type="number" min="0" max="100" class="form-control" id="buzzValue" aria-describedby="buzzValue" placeholder="Buzz...">
+              </div>
+              <class class="col-12 d-flex justify-content-end">
+                <button type="button" class="btn btn-dark font-monospace mt-2 mb-4 p-2 disabled">FizzBuzz!</button>
+              </div>
+            </form>
+              <h2 class="border-bottom border-2">Results</h2>
+              <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                  <tbody id="results">
+                    <!-- Results here -->
+                    <!-- <tr>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                    </tr> -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
     <!-- footer section -->
     <footer class="footer mt-auto py-3 sticky-footer gy-2">
-        <div class="container-fluid ">
-            <div class="row row-cols-1 row-cols-lg-3">
-                <div class="col order-last order-lg-first text-light">
-                    <div><span class="text-muted">&copy;2021</span> Pawel Slugocki | slugocki.pawel@gmail.com</div>
-                </div>
-                <div class="col d-flex align-items-center justify-content-start justify-content-lg-center">
-                    <img src= "img/mono-kmousetool.svg" alt="logo" height="40px">
-                </div>
-                <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
-                    <div class="row">
-                        <div class="col social"><a href="#" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></div>
-                        <div class="col social"><a href="#" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></div>
-                        <div class="col social"><a href="#" target="_blank"><i class="fab fa-youtube fa-2x"></i></a></div>
-                        <div class="col social"><a href="#" target="_blank"><i class="fab fa-github fa-2x"></i></a></div>
-                    </div>
-                </div>
+      <div class="container-fluid">
+        <div class="row row-cols-1 row-cols-lg-3">
+          <div
+            class="
+              col
+              order-last order-lg-first
+              text-light
+              d-flex
+              align-items-center
+            "
+          >
+            <div>
+              <span class="text-dark">&copy;2021</span> Pawel Slugocki |
+              slugocki.pawel@gmail.com
             </div>
+          </div>
+          <div
+            class="
+              col
+              d-flex
+              align-items-center
+              justify-content-start justify-content-lg-center
+            "
+          >
+            <img src="img/mono-kmousetool.svg" alt="logo" height="40px" />
+          </div>
+          <div
+            class="
+              col
+              d-flex
+              align-items-center
+              justify-content-start justify-content-lg-end
+            "
+          >
+            <div class="row">
+              <div class="col social">
+                <a href="#" target="_blank"
+                  ><i class="fab fa-twitter fa-2x"></i
+                ></a>
+              </div>
+              <div class="col social">
+                <a href="#" target="_blank"
+                  ><i class="fab fa-linkedin fa-2x"></i
+                ></a>
+              </div>
+              <div class="col social">
+                <a href="#" target="_blank"
+                  ><i class="fab fa-youtube fa-2x"></i
+                ></a>
+              </div>
+              <div class="col social">
+                <a href="#" target="_blank"
+                  ><i class="fab fa-github fa-2x"></i
+                ></a>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </footer>
-     <!-- Bootstrap JS -->
-     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-     integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
- </script>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-     integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
- </script>
- <script src="./js/site.js"></script>
-</body>
-
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/site.js"></script>
+  </body>
 </html>
