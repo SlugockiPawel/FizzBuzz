@@ -56,11 +56,11 @@ function generateArr(startingValue, endingValue) {
   return arr;
 }
 
-// html input is type of 'number' therefore there is no need to validate type
-// the only two validations performed:
+// validations performed:
+// - check if eacj input is an int
 // - check if each input value is in 0 - 100 range
-// check if buzz >= fizz
-function validateFizzValue(fizzValue) { 
+// - check if buzz >= fizz
+function validateFizzValue(fizzValue) {
 
 }
 
