@@ -3,7 +3,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable linebreak-style */
 
-function handleFormChange() {
+function handleFormInputChange() {
   const fizzValue = getFizzValue();
   const buzzValue = getBuzzValue();
   const lowerRange = getLowerRangeValue();
