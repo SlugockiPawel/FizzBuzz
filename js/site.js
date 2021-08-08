@@ -1,3 +1,6 @@
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable linebreak-style */
+/* eslint-disable no-alert */
 /* eslint-disable no-use-before-define */
 // controller function
 function handleFizzBuzzBtnClick() {
@@ -16,11 +19,19 @@ function handleFizzBuzzBtnClick() {
 
 // logic functions
 function getFizzValue() {
-  return Number(document.getElementById('fizzValue').value);
+  return document.getElementById('fizzValue').value;
 }
 
 function getBuzzValue() {
-  return Number(document.getElementById('buzzValue').value);
+  return document.getElementById('buzzValue').value;
+}
+
+function getLowerRangeValue() {
+  return document.getElementById('lowerRange').value;
+}
+
+function getUpperRangeValue() {
+  return document.getElementById('upperRange').value;
 }
 
 function generateTableHtml(startingValue, endingValue) {
@@ -38,9 +49,11 @@ function generateTableHtml(startingValue, endingValue) {
 function processArrayElement(number) {
   if (number % 3 === 0 && number % 5 === 0) {
     return '<tr><td>FizzBuzz</td></tr>';
-  } if (number % 3 === 0) {
+  }
+  if (number % 3 === 0) {
     return '<tr><td>Fizz</td></tr>';
-  } if (number % 5 === 0) {
+  }
+  if (number % 5 === 0) {
     return '<tr><td>Buzz</td></tr>';
   }
   return `<tr><td>${number}</td></tr>`;
@@ -54,22 +67,6 @@ function generateArr(startingValue, endingValue) {
   }
 
   return arr;
-}
-
-// validations performed:
-// - check if eacj input is an int
-// - check if each input value is in 0 - 100 range
-// - check if buzz >= fizz
-function validateFizzValue(fizzValue) {
-
-}
-
-function validateBuzzValue(buzzValue) {
-
-}
-
-function isBuzzGreaterThanFizz() {
-
 }
 
 // view functions

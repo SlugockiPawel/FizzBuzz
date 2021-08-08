@@ -89,30 +89,80 @@
             </h4>
             <h2 class="mt-4">Instructions</h2>
             <p class="text-muted">
-              Enter a Fizz and a Buzz value in the 0 - 100 range. Fizz value
-              needs to be smaller than or equal to Buzz value. Press the button
-              and the values will appear.
+              Enter Fizz, Buzz and range values in the 0 - 100 range. Higher
+              Range value needs to be smaller than or equal to Lower Range
+              value. Press the button and the values will appear.
             </p>
           </div>
           <div class="col mt-4 mt-md-0">
             <div>
-              <h5>Enter Values</h5>
-            <form class="row gx-2 mb-5">
-              <div class="col">
-                <input type="number" min="0" max="100" class="form-control" id="fizzValue" aria-label="Fizz Value" placeholder="Fizz...">
-              </div>
-              <div class="col">
-                  <input type="number" min="0" max="100" class="form-control" id="buzzValue" aria-label="Buzz Value" placeholder="Buzz...">
-              </div>
-              <class class="col-12 d-flex justify-content-end">
-                <button id="btnSubmit" type="button" class="btn btn-dark font-monospace mt-2 mb-4 p-2">FizzBuzz!</button>
-              </div>
-            </form>
+              <h5 class="mt-1">Enter FizzBuzz Values</h5>
+              <form id="form" class="row gx-2 mb-4">
+                <div class="col">
+                  <input
+                    type="number"
+                    min="1"
+                    max="100"
+                    value="3"
+                    class="form-control"
+                    id="fizzValue"
+                    aria-label="Fizz Value"
+                    placeholder="Fizz..."
+                  />
+                </div>
+                <div class="col">
+                  <input
+                    type="number"
+                    min="1"
+                    max="100"
+                    value="5"
+                    class="form-control"
+                    id="buzzValue"
+                    aria-label="Buzz Value"
+                    placeholder="Buzz..."
+                  />
+                </div>
+                <h5 class="mt-1">Enter Range Values</h5>
+                <div class="col">
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    class="form-control"
+                    id="lowerRange"
+                    aria-label="Lower Range Value"
+                    value="0"
+                    placeholder="Lower Range..."
+                  />
+                </div>
+                <div class="col">
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    class="form-control"
+                    id="upperRange"
+                    aria-label="Higher Range Value"
+                    value="100"
+                    placeholder="Upper Range..."
+                  />
+                </div>
+                <!-- alert message here -->
+                <div class="col-12 d-flex justify-content-end">
+                  <button
+                    id="btnSubmit"
+                    type="button"
+                    class="btn btn-dark font-monospace mt-2 p-2"
+                  >
+                    FizzBuzz!
+                  </button>
+                </div>
+              </form>
               <h2 class="border-bottom border-2">Results</h2>
               <div class="table-responsive">
                 <table class="table table-striped table-sm">
                   <tbody id="results">
-                    <!-- Results here -->
+                    <!-- fbTemplate here as Results-->
                   </tbody>
                 </table>
               </div>
@@ -183,6 +233,43 @@
         </div>
       </div>
     </footer>
+
+    <!-- template tag stores valid html, but it does not display (it can be injected by script) -->
+    <template id="fbTemplate">
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </template>
+
+    <template id="alertTemplate">
+      <div class="col-12">
+        <div
+          class="
+            alert
+            d-flex
+            justify-content-center
+            pt-0
+            pb-0
+            mb-0
+            alert-danger
+            mt-2
+            fade
+            show
+          "
+          id="alert"
+          role="alert"
+        >
+          Fizz Value shopuld be larger than 0<br />
+          Fizz Value shopuld be larger than 0<br />
+          Fizz Value shopuld be larger than 0
+        </div>
+      </div>
+    </template>
+
     <!-- Bootstrap JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
@@ -195,8 +282,15 @@
       crossorigin="anonymous"
     ></script>
     <script src="./js/site.js"></script>
+    <script src="./js/formValidation.js"></script>
+
     <script>
-      document.getElementById('btnSubmit').addEventListener('click', handleFizzBuzzBtnClick)
+      document
+        .getElementById("btnSubmit")
+        .addEventListener("click", handleFizzBuzzBtnClick);
+      document
+        .getElementById("form")
+        .addEventListener("keyup", handleFormChange);
     </script>
   </body>
 </html>
