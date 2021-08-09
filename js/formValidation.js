@@ -4,13 +4,23 @@
 /* eslint-disable linebreak-style */
 
 function handleFormInputChange() {
+  const alertContainer = document.getElementById('alertContainer');
+  const button = document.getElementById('btnSubmit');
   const fizzValue = getFizzValue();
   const buzzValue = getBuzzValue();
   const lowerRange = getLowerRangeValue();
   const upperRange = getUpperRangeValue();
 
-  validateFizzBuzzValues(fizzValue, buzzValue);
-  validateRangeValues(lowerRange, upperRange);
+  button.classList.remove('disabled');
+  alertContainer.innerHTML = '';
+
+  try {
+    validateFizzBuzzValues(fizzValue, buzzValue);
+    validateRangeValues(lowerRange, upperRange);
+  } catch (error) {
+    button.classList.add('disabled');
+    displayValidationAlert(error.message);
+  }
 }
 
 // validating user input
@@ -46,46 +56,55 @@ function isOneToHundredRange(number) {
 
 function validateFizzBuzzValues(fizzValue, buzzValue) {
   if (isEmpty(fizzValue) || isEmpty(buzzValue)) {
-    return alert('Fizz and Buzz value cannot be Empty');
+    throw new Error('Fizz and Buzz value cannot be Empty');
   }
 
   if (isInt(fizzValue) === false || isInt(buzzValue) === false) {
-    return alert('Fizz and Buzz value have to be an Integer');
+    throw new Error('Fizz and Buzz value have to be an Integer');
   }
 
   if (
     isOneToHundredRange(fizzValue) === false ||
     isOneToHundredRange(buzzValue) === false
   ) {
-    return alert('Fizz and Buzz value have to be in 1 - 100 range');
+    throw new Error('Fizz and Buzz value have to be in 1 - 100 range');
   }
 
   if (compareNumbers(buzzValue, fizzValue) === false) {
-    return alert('Buzz value has to be equal or greater to Fizz Value');
+    throw new Error('Buzz value has to be equal or greater to Fizz Value');
   }
 }
 
 function validateRangeValues(lowerRange, upperRange) {
   if (isEmpty(lowerRange) || isEmpty(upperRange)) {
-    return alert('Lower Range and Upper Range value cannot be Empty');
+    throw new Error('Lower Range and Upper Range value cannot be Empty');
   }
 
   if (isInt(lowerRange) === false || isInt(upperRange) === false) {
-    return alert('Lower Range and Upper Range value have to be an Integer');
+    throw new Error('Lower Range and Upper Range value have to be an Integer');
   }
 
   if (
     isZeroToHundredRange(lowerRange) === false ||
     isZeroToHundredRange(upperRange) === false
   ) {
-    return alert(
-      'Lower Range and Upper Range value have to be in 0 - 100 range'
-    );
+    throw new Error('Lower and Upper Range value have to be in 0 - 100 range');
   }
 
   if (compareNumbers(upperRange, lowerRange) === false) {
-    return alert(
+    throw new Error(
       'Upper Range value has to be equal or greater to Lower Range Value'
     );
   }
+}
+
+function displayValidationAlert(message) {
+  const alertContainer = document.getElementById('alertContainer');
+  const alertTemplate = document.getElementById('alertTemplate');
+  const templateContent = document.importNode(alertTemplate.content, true);
+  const messageParagraph = templateContent.querySelector('p');
+
+  alertContainer.innerHTML = '';
+  messageParagraph.innerText = message;
+  alertContainer.appendChild(templateContent);
 }

@@ -147,7 +147,9 @@
                     placeholder="Upper Range..."
                   />
                 </div>
-                <!-- alert message here -->
+                <div id='alertContainer' class='col-12'>
+                  <!-- alert template here -->
+                </div>
                 <div class="col-12 d-flex justify-content-end">
                   <button
                     id="btnSubmit"
@@ -246,7 +248,6 @@
     </template>
 
     <template id="alertTemplate">
-      <div class="col-12">
         <div
           class="
             alert
@@ -263,8 +264,7 @@
           id="alert"
           role="alert"
         >
-        <!-- form validation error message here -->
-        </div>
+        <p class="p-0 m-0"><!-- form validation error message here --></p>
       </div>
     </template>
 
