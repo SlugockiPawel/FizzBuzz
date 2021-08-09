@@ -6,6 +6,7 @@
 function handleFormInputChange() {
   const alertContainer = document.getElementById('alertContainer');
   const button = document.getElementById('btnSubmit');
+  const tableBody = document.getElementById('results');
   const fizzValue = getFizzValue();
   const buzzValue = getBuzzValue();
   const lowerRange = getLowerRangeValue();
@@ -13,6 +14,7 @@ function handleFormInputChange() {
 
   button.classList.remove('disabled');
   alertContainer.innerHTML = '';
+  tableBody.innerHTML = '';
 
   try {
     validateFizzBuzzValues(fizzValue, buzzValue);
@@ -64,8 +66,8 @@ function validateFizzBuzzValues(fizzValue, buzzValue) {
   }
 
   if (
-    isOneToHundredRange(fizzValue) === false ||
-    isOneToHundredRange(buzzValue) === false
+    isOneToHundredRange(fizzValue) === false
+    || isOneToHundredRange(buzzValue) === false
   ) {
     throw new Error('Fizz and Buzz value have to be in 1 - 100 range');
   }
@@ -85,8 +87,8 @@ function validateRangeValues(lowerRange, upperRange) {
   }
 
   if (
-    isZeroToHundredRange(lowerRange) === false ||
-    isZeroToHundredRange(upperRange) === false
+    isZeroToHundredRange(lowerRange) === false
+    || isZeroToHundredRange(upperRange) === false
   ) {
     throw new Error('Lower and Upper Range value have to be in 0 - 100 range');
   }
