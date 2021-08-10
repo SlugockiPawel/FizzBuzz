@@ -83,10 +83,19 @@ function displayFizzBuzz(fbArray) {
 
     // grab just the <td> from the table row tag (as array)
     const rowCols = tableRow.querySelectorAll('td');
+    rowCols[0].classList.add(fbArray[i]);
     rowCols[0].textContent = fbArray[i];
+
+    rowCols[1].classList.add(fbArray[i + 1]);
     rowCols[1].textContent = fbArray[i + 1];
+
+    rowCols[2].classList.add(fbArray[i + 2]);
     rowCols[2].textContent = fbArray[i + 2];
+
+    rowCols[3].classList.add(fbArray[i + 3]);
     rowCols[3].textContent = fbArray[i + 3];
+
+    rowCols[4].classList.add(fbArray[i + 4]);
     rowCols[4].textContent = fbArray[i + 4];
 
     tableBody.appendChild(tableRow);

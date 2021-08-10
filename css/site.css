@@ -44,6 +44,19 @@ footer .social > a:hover {
   color: var(--secondary-color);
 }
 
+.Fizz {
+  color:darkgreen;
+}
+
+.Buzz {
+  color:darkblue;
+}
+
+.FizzBuzz {
+  color:red;
+  font-weight: bold;
+}
+
 .sticky-nav {
   position: fixed;
   left: 0;
