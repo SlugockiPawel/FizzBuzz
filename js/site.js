@@ -67,7 +67,7 @@ function processfizzBuzzNumber(number, fizzValue, buzzValue) {
   return number.toString();
 }
 
-function processfizzBuzzNumberB(number, fizzValue, buzzValue) {
+function processFizzBuzzNumberB(number, fizzValue, buzzValue) {
   return (
     (number % fizzValue === 0 ? 'Fizz' : '') +
       (number % buzzValue === 0 ? 'Buzz' : '') || number
