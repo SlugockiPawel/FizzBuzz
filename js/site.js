@@ -1,8 +1,4 @@
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable linebreak-style */
-/* eslint-disable no-alert */
-/* eslint-disable no-use-before-define */
-// controller function
+//
 function handleFizzBuzzBtnClick() {
   // get user input
   const fizzValue = getFizzValue();
@@ -13,7 +9,12 @@ function handleFizzBuzzBtnClick() {
   // validation is done before fizz buzz button clicked
 
   // prepare data to display
-  const fbArray = generateFizzBuzzArray(fizzValue, buzzValue, lowerValue, upperValue);
+  const fbArray = generateFizzBuzzArray(
+    fizzValue,
+    buzzValue,
+    lowerValue,
+    upperValue
+  );
 
   // display data to user
   displayFizzBuzz(fbArray);
@@ -64,6 +65,13 @@ function processfizzBuzzNumber(number, fizzValue, buzzValue) {
   }
 
   return number.toString();
+}
+
+function processfizzBuzzNumberB(number, fizzValue, buzzValue) {
+  return (
+    (number % fizzValue === 0 ? 'Fizz' : '') +
+      (number % buzzValue === 0 ? 'Buzz' : '') || number
+  );
 }
 
 // view functions

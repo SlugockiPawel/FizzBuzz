@@ -1,8 +1,3 @@
-/* eslint-disable no-alert */
-/* eslint-disable no-use-before-define */
-/* eslint-disable no-undef */
-/* eslint-disable linebreak-style */
-
 function handleFormInputChange() {
   const alertContainer = document.getElementById('alertContainer');
   const button = document.getElementById('btnSubmit');

@@ -81,126 +81,159 @@
         <div>
           <ul class="nav nav-pills mb-2">
             <li class="nav-item">
-                <a href="./Code.html" class="nav-link active bg-dark border text-light" aria-current="page">FizzBuzz Code</a>
+                <a href="./Code.html" class="nav-link text-dark border" >FizzBuzz Code</a>
             </li>
             <li class="nav-item">
-              <a href="./codeValidation.html" class="nav-link text-dark border ms-2">Form Validation Code</a>
+              <a href="./codeValidation.html" class="nav-link active bg-dark border text-light ms-2" aria-current="page">Form Validation Code</a>
           </li>
         </ul>
         </div>
-          <h2 class="border-1 border-bottom border-dark">The Code For FIZZ BUZZ</h2>
+          <h2 class="border-1 border-bottom border-dark">The Code For Form Validation</h2>
           <div class="row row-cols-1 row-cols-md-2">
               <div class="col-lg-8">
                   <pre class="line-numbers"><code class="language-javascript">
-function handleFizzBuzzBtnClick() {
-  // get user input
+function handleFormInputChange() {
+  // get needed elements from DOM
+  const alertContainer = document.getElementById('alertContainer');
+  const button = document.getElementById('btnSubmit');
+  const tableBody = document.getElementById('results');
   const fizzValue = getFizzValue();
   const buzzValue = getBuzzValue();
-  const lowerValue = getLowerRangeValue();
-  const upperValue = getUpperRangeValue();
+  const lowerRange = getLowerRangeValue();
+  const upperRange = getUpperRangeValue();
 
-  // validation is done before fizz buzz button clicked
-
-  // prepare data to display
-  const fbArray = generateFizzBuzzArray(fizzValue, buzzValue, lowerValue, upperValue);
-
-  // display data to user
-  displayFizzBuzz(fbArray);
-}
-// logic functions
-function getFizzValue() {
-  return document.getElementById('fizzValue').value;
-}
-
-function getBuzzValue() {
-  return document.getElementById('buzzValue').value;
-}
-
-function getLowerRangeValue() {
-  return document.getElementById('lowerRange').value;
-}
-
-function getUpperRangeValue() {
-  return document.getElementById('upperRange').value;
-}
-
-function generateFizzBuzzArray(fizzValue, buzzValue, lowerRange, upperRange) {
-  const fizzNumber = Number(fizzValue);
-  const buzzNumber = Number(buzzValue);
-  const lowerNumber = Number(lowerRange);
-  const upperNumber = Number(upperRange);
-  const arr = [];
-
-  for (let i = lowerNumber; i <= upperNumber; i++) {
-    arr.push(processfizzBuzzNumber(Number(i), fizzNumber, buzzNumber));
-  }
-
-  return arr;
-}
-
-function processfizzBuzzNumber(number, fizzValue, buzzValue) {
-  if (number % fizzValue === 0 && number % buzzValue === 0) {
-    return 'FizzBuzz';
-  }
-
-  if (number % fizzValue === 0) {
-    return 'Fizz';
-  }
-
-  if (number % buzzValue === 0) {
-    return 'Buzz';
-  }
-
-  return number.toString();
-}
-
-function processfizzBuzzNumberB(number, fizzValue, buzzValue) {
-  return (
-    (number % fizzValue === 0 ? 'Fizz' : '') +
-      (number % buzzValue === 0 ? 'Buzz' : '') || number
-  );
-}
-
-// view functions
-function displayFizzBuzz(fbArray) {
-  // get the table body element from the page
-  const tableBody = document.getElementById('results');
-
-  // get the template row
-  const templateRow = document.getElementById('fbTemplate');
-
-  // clear the table body before populating new data
+  // clear button, alert and results to default state
+  button.classList.remove('disabled');
+  alertContainer.innerHTML = '';
   tableBody.innerHTML = '';
-  for (let i = 0; i &lt; fbArray.length; i += 5) {
-  // copy template content without &lt;template&gt; tags
-  const tableRow = document.importNode(templateRow.content, true);
 
-  // grab just the &lt;td&gt; from the table row tag (as array)
-    const rowCols = tableRow.querySelectorAll('td');
-    rowCols[0].classList.add(fbArray[i]);
-    rowCols[0].textContent = fbArray[i];
-
-    rowCols[1].classList.add(fbArray[i + 1]);
-    rowCols[1].textContent = fbArray[i + 1];
-
-    rowCols[2].classList.add(fbArray[i + 2]);
-    rowCols[2].textContent = fbArray[i + 2];
-
-    rowCols[3].classList.add(fbArray[i + 3]);
-    rowCols[3].textContent = fbArray[i + 3];
-
-    rowCols[4].classList.add(fbArray[i + 4]);
-    rowCols[4].textContent = fbArray[i + 4];
-
-    tableBody.appendChild(tableRow);
+  try {
+    validateFizzBuzzValues(fizzValue, buzzValue);
+    validateRangeValues(lowerRange, upperRange);
+  } catch (error) {
+    button.classList.add('disabled');
+    displayValidationAlert(error.message);
   }
 }
+
+// validating user input
+
+// validations performed:
+// - check if any of the user input is empty
+// - check if each input is an int
+// - check if range values are in 0 - 100 range
+// - check if buzz >= fizz and higher range >= lower range
+// - check if fizz and buzz are > 0 and < 100
+
+function compareNumbers(higherNumber, lowerNumber) {
+  return Number(higherNumber) >= Number(lowerNumber);
+}
+
+function isEmpty(input) {
+  return input.length === 0;
+}
+
+function isInt(input) {
+  const number = Number(input);
+
+  return Number.isInteger(number);
+}
+
+function isZeroToHundredRange(number) {
+  return number >= 0 && number <= 100;
+}
+
+function isOneToHundredRange(number) {
+  return number >= 1 && number <= 100;
+}
+
+function validateFizzBuzzValues(fizzValue, buzzValue) {
+  if (isEmpty(fizzValue) || isEmpty(buzzValue)) {
+    throw new Error('Fizz and Buzz value cannot be Empty');
+  }
+
+  if (isInt(fizzValue) === false || isInt(buzzValue) === false) {
+    throw new Error('Fizz and Buzz value have to be an Integer');
+  }
+
+  if (
+    isOneToHundredRange(fizzValue) === false
+    || isOneToHundredRange(buzzValue) === false
+  ) {
+    throw new Error('Fizz and Buzz value have to be in 1 - 100 range');
+  }
+
+  if (compareNumbers(buzzValue, fizzValue) === false) {
+    throw new Error('Buzz value has to be equal or greater to Fizz Value');
+  }
+}
+
+function validateRangeValues(lowerRange, upperRange) {
+  if (isEmpty(lowerRange) || isEmpty(upperRange)) {
+    throw new Error('Lower Range and Upper Range value cannot be Empty');
+  }
+
+  if (isInt(lowerRange) === false || isInt(upperRange) === false) {
+    throw new Error('Lower Range and Upper Range value have to be an Integer');
+  }
+
+  if (
+    isZeroToHundredRange(lowerRange) === false
+    || isZeroToHundredRange(upperRange) === false
+  ) {
+    throw new Error('Lower and Upper Range value have to be in 0 - 100 range');
+  }
+
+  if (compareNumbers(upperRange, lowerRange) === false) {
+    throw new Error(
+      'Upper Range value has to be equal or greater to Lower Range Value'
+    );
+  }
+}
+
+function displayValidationAlert(message) {
+  const alertContainer = document.getElementById('alertContainer');
+  const alertTemplate = document.getElementById('alertTemplate');
+  const templateContent = document.importNode(alertTemplate.content, true);
+  const messageParagraph = templateContent.querySelector('p');
+
+  alertContainer.innerHTML = '';
+  messageParagraph.innerText = message;
+  alertContainer.appendChild(templateContent);
+}
+
                   </code></pre>
               </div>
               <div class="col-lg-4">
-                <p>The Code is structured in one function.</p>
-                <h5>Hello World</h5>
-                <p>Hello World is a function that displays am alert with a message of 'Hello World'</p>
+                <h5>handleFormInputChange()</h5>
+                <p>After each 'keyup' occurs in the form (user releases a key while providing values) this function is triggered.
+                  It gets user input and validate values- if any of the validations fail, alert box with an error is shown to the user and FizzBuzz! button is disabled.
+                  If all checks are passed, user can click the button which will perform Fizz Buzz program. The above is achieved using try/catch code block.
+                </p>
+                <h5>compareNumbers()</h5>
+                <p>Validation boolean function- it checks if first parameter number is larger or equal to second parameter number
+                </p>
+                <h5>isEmpty()</h5>
+                <p>Validation boolean function- it checks if the input parameter is empty.
+                </p>
+                <h5>isInt()</h5>
+                <p>Validation boolean function- it checks if the parameter is an instance of Integer type.
+                </p>
+                <h5>isZeroToHundredRange()</h5>
+                <p>Validation boolean function- it checks if number parameter value is in the 0 - 100 range.
+                </p>
+                <h5>isOneToHundredRange()</h5>
+                <p>Validation boolean function- it checks if number parameter value is in the 1 - 100 range.
+                </p>
+                <h5>validateFizzBuzzValues()</h5>
+                <p>This function performs all the checks that should be performed against fizz and buzz input values.
+                </p>
+                <h5>validateRangeValues()</h5>
+                <p>This function performs all the checks that should be performed against lower and upper range input values.
+                </p>
+                <h5>displayValidationAlert()</h5>
+                <p>In case any of the validation checks fail- this function will display alert that will communicate failure reason to the user.
+                </p>
               </div>
           </div>
       </div>
