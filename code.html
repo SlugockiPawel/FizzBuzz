@@ -154,7 +154,7 @@ function processfizzBuzzNumber(number, fizzValue, buzzValue) {
   return number.toString();
 }
 
-function processfizzBuzzNumberB(number, fizzValue, buzzValue) {
+function processFizzBuzzNumberB(number, fizzValue, buzzValue) {
   return (
     (number % fizzValue === 0 ? 'Fizz' : '') +
       (number % buzzValue === 0 ? 'Buzz' : '') || number
@@ -198,10 +198,26 @@ function displayFizzBuzz(fbArray) {
                   </code></pre>
               </div>
               <div class="col-lg-4">
-                <p>The Code is structured in one function.</p>
-                <h5>Hello World</h5>
-                <p>Hello World is a function that displays am alert with a message of 'Hello World'</p>
+                <h5>handleFizzBuzzBtnClick()</h5>
+                <p>This is a controller function. It gets user input (validation is done before submitting the form), then a FizzBuzz array is prepared and displayed to the user.</p>
+                <h5>getFizzValue()</h5>
+                <p>This is a getter function that returns Fizz Value from the form.</p>
+                <h5>getBuzzValue()</h5>
+                <p>This is a getter function that returns Buzz Value from the form.</p>
+                <h5>getLowerRangeValue()</h5>
+                <p>This is a getter function that returns Lower Range Value from the form.</p>
+                <h5>getUpperRangeValue()</h5>
+                <p>This is a getter function that returns Upper Range Value from the form.</p>
+                <h5>generateFizzBuzzArray()</h5>
+                <p>This function returns final fizzBuzz array based on all user inputs.</p>
+                <h5>processFizzBuzzNumber()</h5>
+                <p>This function is a heart of the program. It is used as a helper generateFizzBuzzArray() method, as every number is beeing passed as parameter for fizz buzz processing. After 'FizzBuzz' is done- the result is returned and pushed to the fizzBuzz array.</p>
+                <h5>processFizzBuzzNumberB()</h5>
+                <p>Another approach to perform Fizz Buzz algorithm. It uses ternary operator and string concatenation.</p>
+                <h5>displayFizzBuzz()</h5>
+                <p>The ,ethod that is responsible for displaying results (in the tabular form) to the user. It retrieve needed DOM elements and then generate whole HTML table based on the template (in a modular manner). Coloring is done by adding the class that has the same name (in css file) as value in the table (e.g. if value is 'Fizz', the same class 'Fizz' will be added to the tag class list).</p>
               </div>
+            </div>
           </div>
       </div>
     </main>
